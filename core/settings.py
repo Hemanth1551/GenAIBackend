@@ -5,9 +5,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-%wp&y%6h+s211@l90#ft*!0v2f$!v*q3at%+*-jc80%p_9tyv0'
 
-DEBUG = True
+# DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["*.vercel.app", "localhost", "127.0.0.1"] # Allowed for development
+# ALLOWED_HOSTS = ["*.vercel.app", "localhost", "127.0.0.1"] # Allowed for development
+ALLOWED_HOSTS = [
+    "gen-ai-backend-xi.vercel.app",
+    ".vercel.app",
+    "localhost",
+    "127.0.0.1",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -94,5 +101,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
 
 STATIC_URL = '/static/'
